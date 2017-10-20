@@ -1,0 +1,22 @@
+{
+  "name": "node_from_scratch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.1",
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "express-validation": "^1.0.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.12.3",
+    "morgan": "^1.9.0"
+  }
+}
