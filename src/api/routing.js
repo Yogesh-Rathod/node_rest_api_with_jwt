@@ -5,6 +5,8 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 // ========== Local Dependencies ============= //
 const dbOperations = require('./routeFunctions');
@@ -61,7 +63,7 @@ router.post('/add-user', (req, res) => {
 
 router.post('/add-test-user', dbOperations.saveATestUser );
 
-
+router.post('/upload-file', upload.single('avatar'), dbOperations.uploadImage );
 
 
 

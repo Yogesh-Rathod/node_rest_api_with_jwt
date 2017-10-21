@@ -26,7 +26,8 @@ const options = {
 };
 
 const corsOptions = {
-  origin: 'http://example.com',
+  origin: 'http://localhost:4200',
+  credentials: true,
   optionsSuccessStatus: 200
 };
 

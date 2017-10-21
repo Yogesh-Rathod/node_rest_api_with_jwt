@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 // ========== Local Dependencies ============= //
 const Users = require('./models/users');
+const Upload = require('./models/Upload');
 const config = require('../config');
 
 // ========== Setting Up Middlewares ============= //
@@ -86,6 +87,31 @@ module.exports = {
       }
 
     });
+  },
+
+
+  uploadImage: (req, res) => {
+    if (req.file) {
+      const Image = new Upload({
+        name: req.file.originalname,
+        path: req.file.path
+      });
+      Image.save( (error, success) => {
+        if (error) {
+          res.status(500).send('Something went wrong. Could not upload!!!!');
+        }
+        const response = {
+          status: 200,
+          message: 'Everything is Cool!',
+          data: 'Image saved Sucessfully'
+        };
+    
+        res.json(response);
+      })
+    } else {
+      res.status(500).send('No file found to upload!!!!');
+    }
+
   }
 
 };
