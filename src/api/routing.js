@@ -51,7 +51,17 @@ router.use( (req, res, next) => {
 
 
 // ========== All API Routes Below ============= //
-router.get('/users', dbOperations.getAllUsers );
+router.get('/users', dbOperations.getAllUsers); 
+
+router.get('/customers', dbOperations.getAllCustomers );
+
+router.get('/customer/:id', dbOperations.getCustomerById );
+
+router.get('/appointment/:id', dbOperations.getAppointmentById );
+
+router.post('/add-customer', dbOperations.saveATestCustomer );
+
+router.post('/add-appointment', dbOperations.saveATestAppointment );
 
 router.get('/user/:id', (req, res) => {
   res.json('user/id');

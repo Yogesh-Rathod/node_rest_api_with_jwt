@@ -6,6 +6,7 @@ mongoose.Promise = require('bluebird');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
 
 // ========== Local Dependencies ============= //
 const dummyData = require('./src/dummyData');
@@ -40,6 +41,7 @@ app.use(express.static('public', options));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(helmet());
 
 // ========== Connect To MongoDB through Mongoose ============= //
 mongoose.connect(config.dbConnection(), { useMongoClient: true } );
